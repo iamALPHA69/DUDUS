@@ -217,13 +217,12 @@ def send_welcome(message):
     # Create buttons
     btn1 = KeyboardButton("Instant Plan 🧡")
     btn2 = KeyboardButton("Instant++ Plan 💥")
-    btn3 = KeyboardButton("Canary Download✔️")
     btn4 = KeyboardButton("My Account🏦")
-    btn5 = KeyboardButton("Help❓")
+#    btn5 = KeyboardButton("Help❓")
     btn6 = KeyboardButton("Contact admin✔️")
 
     # Add buttons to the markup
-    markup.add(btn1, btn2, btn3, btn4, btn5, btn6)
+    markup.add(btn1, btn2, btn4, btn6)
 
     bot.send_message(message.chat.id, "*Choose an option:*", reply_markup=markup, parse_mode='Markdown')
 
@@ -234,8 +233,8 @@ def handle_message(message):
     elif message.text == "Instant++ Plan 💥":
         bot.reply_to(message, "*Instant++ Plan selected*", parse_mode='Markdown')
         attack_command(message)
-    elif message.text == "Canary Download✔️":
-        bot.send_message(message.chat.id, "*Please use the following link for Canary Download: https://t.me/SOULCRACKS/10599*", parse_mode='Markdown')
+#    elif message.text == "Canary Download✔️":
+#        bot.send_message(message.chat.id, "*Please use the following link for Canary Download: https://t.me/SOULCRACKS/10599*", parse_mode='Markdown')
     elif message.text == "My Account🏦":
         user_id = message.from_user.id
         user_data = users_collection.find_one({"user_id": user_id})
@@ -251,8 +250,8 @@ def handle_message(message):
         else:
             response = "*No account information found. Please contact the administrator.*"
         bot.reply_to(message, response, parse_mode='Markdown')
-    elif message.text == "Help❓":
-        bot.reply_to(message, "*Help selected*", parse_mode='Markdown')
+#    elif message.text == "Help❓":
+#        bot.reply_to(message, "*Help selected*", parse_mode='Markdown')
     elif message.text == "Contact admin✔️":
         bot.reply_to(message, "*Contact admin selected*", parse_mode='Markdown')
     else:
